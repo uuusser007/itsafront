@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.border{
+    border:1px solid black;
+}
+.textgreen{
+    color: #089443;
+}
+.input{
+    max-width: 600px;
+    outline: none;
+    height: 60px;
+    width: 100%;
+    margin: 20px auto;
+    padding:10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 2px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 5px -2px rgba(0,0,0,0.75);
+}
+.button{
+    height: 60px;
+    width: 90%;
+    margin: 0 auto;
+    background: rgb(59, 130, 246);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.buttonAll{
+    height: 60px;
+    width: 200px;
+    background: rgb(59, 130, 246);
+    color: #fff;
+}
+

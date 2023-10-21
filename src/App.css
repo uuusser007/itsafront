@@ -1,0 +1,9 @@
+
+ul li:hover{
+    background:white;
+    color:black
+}
+ul li:focus{
+    background:white;
+  
+}
