@@ -8,8 +8,8 @@ function App() {
   return (
     <HashRouter>
       <>
-      <header className="w-full h-fit bg-slate-500 flex items-center">
-            <nav className="w-full h-14 bg-slate-500 flex items-center container m-auto p-2 text-white max-w-5xl justify-between">
+      <header className="w-full h-fit bg-slate-500 flex items-center flex-wrap">
+            <nav className="w-full h-14 bg-slate-500 flex items-center container m-auto p-1 text-white max-w-5xl justify-between">
               Registro de estudiantes
               <ul className="flex gap-4 cursor-pointer ">
                  <Link to={'/registro'}>
