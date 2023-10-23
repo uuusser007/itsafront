@@ -26,8 +26,9 @@ const Certificados = () => {
     const generateQrCodes = async () => {
       try {
         const qrCodes = await Promise.all(users.map((user) => {
-          const description = "BENEFICIADO";
-          const dataToEncode = `${description}: ${user.firstName} ${user.lastName}\nEmail: ${user.email}`;
+          const hola="POR SU PARTICIPACION EN EL EXAMEN ITSA 2023"
+          const description = "SE LE OTORGA EL CERTIFICADO A: ";
+          const dataToEncode = `${hola} \n${description} ${user.firstName} ${user.lastName}\nEmail: ${user.email}`;
           return QRCode.toDataURL(dataToEncode);
         }));
         setQrCodes(qrCodes);
