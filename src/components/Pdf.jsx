@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Document,
   Page,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     left:"40%",
     transform: "translate(-50%, -50%)",
     opacity: .2,
-    zIndex:-30
+    zIndex:1
   },
 
   title: {
@@ -81,43 +81,59 @@ const styles = StyleSheet.create({
   participacion: {
     fontWeight: "bold",
     margin: "20px 0",
-    zIndex:30
+    zIndex:30,
+
   },
+  qr:{
+    height:150,
+    width:150,
+     position: "absolute"
+     ,left: 10, bottom: 10
+     ,border:"4px solid green",
+
+  }
+
 });
-const Pdf = ({name,last}) => {
+
+const Pdf = ({name,last,qr}) => {
+  if (!qr) {
+    // Si qr no está definido, muestra un mensaje de error o una imagen de respaldo
+    return (
+      <Document>
+        <Page size="letter" orientation="landscape">
+          <View style={styles.pageContainer}>
+            <Text style={styles.title}>INSTITUTO TECNOLOGICO SACABA</Text>
+            {/* Resto del contenido */}
+            <Text>Error: No se pudo generar el CERTIFICADO</Text>
+          </View>
+        </Page>
+      </Document>
+    );
+  }
+
 
   return (
-    <>
-    
-        <Document>
-
-          <Page size="letter" orientation="landscape">
-            <View style={styles.pageContainer}>
-              <Image style={styles.image} src={logoItsa} />
-              <Image style={styles.image2} src={logoRobot} />
-              <Image style={styles.image3} src={informatica}    />
-              <Text style={styles.title}>INSTITUTO TECNOLOGICO SACABA</Text>
-              <Text style={styles.suptitulo}>R.M.N- 999/2023</Text>
-              <Text>FD0.21 DE AGOSTO 2003 SACABA-COCHABAMBA-BOLIVIA</Text>
-              <Text style={styles.suptitulo}>
-                CARRERA DE INFORMATICA INDUSTRIAL
-              </Text>
-              <Text style={styles.confiere}>Confiere al presente</Text>
-              <Text style={styles.certificado}>CERTIFICADO</Text>
-              <Text style={styles.nombre}>{name} {last}</Text>
-              <Text style={styles.linea}></Text>
-              <Text style={styles.participacion}>
-                POR SU PARTICIPACION EN EL EXAMEN ITSa-2023
-              </Text>
-              <Text>
-                Realizado en los ambientes del instituto Tecnologico sacaba
-              </Text>
-              <Text> sacaba, 9 de agosto de 2023</Text>
-            </View>
-          </Page>
-        </Document>
-     
-    </>
+    <Document>
+      <Page size="letter" orientation="landscape">
+        <View style={styles.pageContainer}>
+          <Image style={styles.image} src={logoItsa} />
+          <Image style={styles.image2} src={logoRobot} />
+          <Image style={styles.image3} src={informatica} />
+          <Text style={styles.title}>INSTITUTO TECNOLOGICO SACABA</Text>
+          <Text style={styles.suptitulo}>R.M.N- 999/2023</Text>
+          <Text>FD0.21 DE AGOSTO 2003 SACABA-COCHABAMBA-BOLIVIA</Text>
+          <Text style={styles.suptitulo}>CARRERA DE INFORMATICA INDUSTRIAL</Text>
+          <Text style={styles.confiere}>Confiere al presente</Text>
+          <Text style={styles.certificado}>CERTIFICADO</Text>
+          <Text style={styles.nombre}>{name} {last}</Text>
+          <Text style={styles.linea}></Text>
+          <Text style={styles.participacion}>POR SU PARTICIPACION EN EL EXAMEN ITSa-2023</Text>
+          <Text>Realizado en los ambientes del instituto Tecnologico sacaba</Text>
+          <Text>sacaba, 9 de agosto de 2023</Text>
+          <Image style={styles.qr} src={qr} />
+        </View>
+      </Page>
+    </Document>
   );
 };
 

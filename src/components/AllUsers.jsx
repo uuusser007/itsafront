@@ -8,12 +8,13 @@ const AllUsers = () => {
     axios.get("https://itsa-api.onrender.com/itsa/users").then((res) => setData(res.data));
   }, []);
 
+
   return (
     <>
+
       <div style={{ background: "#F5F5F5" }} className="h-screen w-full p-10">
         <div className="container  px-2 m-auto">
           <h1 className="text-center font-bold ">USUARIOS REGISTRADOS </h1>
-
           <table className="m-auto">
             <thead>
               <tr>
